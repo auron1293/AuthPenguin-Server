@@ -33,7 +33,7 @@ const configurePassport = () => {
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: `${process.env.BASE_URL || 'http://localhost:3000'}/auth/google/callback`
+        callbackURL: `${process.env.BASE_URL || 'https://localhost:3000'}/auth/google/callback`
     }, (accessToken, refreshToken, profile, done) => {
         const user = {
             id: profile.id,
@@ -51,7 +51,7 @@ const configurePassport = () => {
     passport.use(new GitHubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: `${process.env.BASE_URL.replace("https", "http") || 'http://localhost:3000'}/auth/github/callback`
+        callbackURL: `${process.env.BASE_URL.replace("https", "http") || 'https://localhost:3000'}/auth/github/callback`
     }, (accessToken, refreshToken, profile, done) => {
         const user = {
             id: profile.id,
@@ -82,7 +82,7 @@ const configurePassport = () => {
     passport.use(new SoundCloudStrategy({
         clientID: process.env.SOUNDCLOUD_CLIENT_ID,
         clientSecret: process.env.SOUNDCLOUD_CLIENT_SECRET,
-        callbackURL: `${process.env.BASE_URL || 'http://localhost:3000'}/auth/soundcloud/callback`
+        callbackURL: `${process.env.BASE_URL || 'https://localhost:3000'}/auth/soundcloud/callback`
     }, (accessToken, refreshToken, profile, done) => {
         return done(null, profile);
     }));
