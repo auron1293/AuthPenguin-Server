@@ -19,7 +19,7 @@ const configurePassport = () => {
     passport.use(new DiscordStrategy({
         clientID: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
-        callbackURL: `${process.env.BASE_URL || 'http://localhost:3000'}/auth/discord/callback`,
+        callbackURL: `${process.env.BASE_URL || 'https://localhost:3000'}/auth/discord/callback`,
         scope: ['identify', 'email']
     }, (accessToken, refreshToken, profile, done) => {
         const user = {
