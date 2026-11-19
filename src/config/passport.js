@@ -33,7 +33,7 @@ const configurePassport = () => {
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: `${process.env.BASE_URL || 'https://localhost:3000'}/auth/google/callback`
+        callbackURL: 'https://authpenguin-server.onrender.com/auth/google/callback',
     }, (accessToken, refreshToken, profile, done) => {
         const user = {
             id: profile.id,
